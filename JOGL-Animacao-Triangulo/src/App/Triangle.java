@@ -11,36 +11,24 @@ public class Triangle implements GLEventListener {
 
     @Override
     public void display(GLAutoDrawable drawable) {
+        GL2  gl = drawable.getGL().getGL2();
 
-        final GL2 gl = drawable.getGL().getGL2();
-        gl.glBegin (GL2.GL_LINES);
+        gl.glBegin(GL2.GL_TRIANGLES);
 
+        // topo
         // definindo a cor azul seguindo o padrão rgb
         gl.glColor3f(0.0f,0.0f,1.0f);
-
-        // pontos que fazem a base
-        gl.glVertex3f(-0.50f, -0.50f, 0);
-        gl.glVertex3f(0.50f, -0.50f, 0);
-        gl.glEnd();
-
+        gl.glVertex3f(0,0.50f,0);
+        // base
         // definindo a cor vermelha seguindo o padrão rgb
         gl.glColor3f(1.0f,0.0f,0.0f);
-        // pontos que fazem o lado direito
-        gl.glBegin (GL2.GL_LINES);
-        gl.glVertex3f(0f, 0.50f, 0);
-        gl.glVertex3f(-0.50f, -0.50f, 0);
-        gl.glEnd();
-
+        gl.glVertex3f(-0.50f,-0.50f,0);
+        // lateral
         // definindo a cor verde seguindo o padrão rgb
         gl.glColor3f(0.0f,1.0f,0.0f);
-        // pontos que fazem o lado esquerdo
-        gl.glBegin (GL2.GL_LINES);
-        gl.glVertex3f(0f, 0.50f, 0);
-        gl.glVertex3f(0.50f, -0.50f, 0);
+        gl.glVertex3f(0.50f,-0.50f,0);
         gl.glEnd();
         gl.glFlush();
-
-
 
     }
 
